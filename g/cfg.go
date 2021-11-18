@@ -17,17 +17,24 @@ var (
 
 // ServerCfg defines the server config
 type ServerCfg struct {
-	Log LogCfg `yaml:"log"` // log config
+	Log  logCfg     `yaml:"log"`  // log config
+	HTTP HTTPConfig `yaml:"http"` // http config
 }
 
-// LogCfg defines the logger config
-type LogCfg struct {
+// logCfg defines the logger config
+type logCfg struct {
 	MaxSize    int    `yaml:"max_size"`    // unit: MB
 	MaxAge     int    `yaml:"max_age"`     // unit: day
 	MaxBackups int    `yaml:"max_backups"` // unit: short
 	Level      string `yaml:"level"`       // log level
 	Path       string `yaml:"path"`        // path to hold log file
 	Encoding   string `yaml:"encoding"`    // json or console
+}
+
+// HTTPConfig defines http config
+type HTTPConfig struct {
+	Enable bool `yaml:"enable"` // start http server when it is true
+	Port   int  `yaml:"port"`   // port to listen
 }
 
 // LoadServerConfig loads server config file

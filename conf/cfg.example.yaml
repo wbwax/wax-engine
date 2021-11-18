@@ -7,3 +7,7 @@ log: # logger config
   level: "info" # log level, only support: debug, info, warn, error
   path: "logs" # path to hold log file
   encoding: "console" # json or console
+
+http: # http config
+  enable: true
+  port: 7000
