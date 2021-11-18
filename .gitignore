@@ -1,0 +1,5 @@
+wax-engine
+main
+logs
+*.bak
+*.log

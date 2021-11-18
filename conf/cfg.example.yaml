@@ -1,0 +1,9 @@
+# configuration example
+
+log: # logger config
+  max_size: 32 # unit: MB
+  max_age: 7 # unit: day
+  max_backups: 2 # unit: short
+  level: "info" # log level, only support: debug, info, warn, error
+  path: "logs" # path to hold log file
+  encoding: "console" # json or console
