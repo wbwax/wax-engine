@@ -10,13 +10,20 @@ import (
 	"github.com/wbwax/wax-engine/g"
 )
 
+var (
+	appName    string
+	appVersion string
+	gitCommit  string
+)
+
 func main() {
-	cfgFile := flag.String("c", "conf/cfg.example1.yaml", "configuration file")
+	g.UpdateLDFlags(appName, appVersion, gitCommit)
+	cfgFile := flag.String("c", "conf/cfg.example.yaml", "configuration file")
 	version := flag.Bool("v", false, "show version")
 	help := flag.Bool("h", false, "help")
 	flag.Parse()
 	if *version {
-		fmt.Println(g.Version)
+		fmt.Printf("app name: %s, app version: %s, git commit: %s\n", appName, appVersion, gitCommit)
 		os.Exit(0)
 	}
 	if *help {
